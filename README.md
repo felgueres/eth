@@ -1,5 +1,5 @@
 ```
-TODO   
+TODO & Resources
 * Investigate the relative merits of proof of work vs. proof of stake
 * How is hash computed? What is nonce?
 * First-to-file paradigm? First registerer succeeds, seconds fails.
@@ -10,6 +10,7 @@ TODO
 * How many transactions a second rn for Eth?
 * Real-time monitoring of Eth Blockchain and block creation: http://ethviewer.live/
 * Rewatch Eth Mining: Not clear 
+* Video: Hashing Algorithms and Security by Computerphile
 
 Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
 
@@ -322,7 +323,15 @@ It's basically a competition for the reward
 
 Properties of hashfunctions
 
-1. Deterministic
+1. Deterministic (that's why they are pseudorandom and not fully random)
 2. Fast
 3. Infeeasible to reverse (analogy is to merge some paint together and try to reverse to original colors)
+4. Small change in input results in very different output
+5. Collision resistent (No two different data produces same hash)
+6. Output fix typed length regardless of input.
+
+They are typically chained together for data validity
+
+---
+
 
