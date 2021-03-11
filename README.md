@@ -11,6 +11,7 @@ TODO & Resources
 * Real-time monitoring of Eth Blockchain and block creation: http://ethviewer.live/
 * Rewatch Eth Mining: Not clear 
 * Video: Hashing Algorithms and Security by Computerphile
+* Vis representation of blockchain: https://andersbrownworth.com/blockchain/
 
 Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
 
@@ -332,6 +333,45 @@ Properties of hashfunctions
 
 They are typically chained together for data validity
 
+Examples of hash functions: SHA256 & keccak256
+
+```
+i: sha256("")
+o: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+
+sometimes you can do: 
+
+threeHash = keccak256(sha256("hello")+sha256("world"))
+
+```
+
 ---
 
+#### Public Key Cryptography
+
+Inputs: Random Data
+
+Process: Key Generation Algo (elliptic curve for Eth) 
+
+Outputs: Master Private Keys (these have surrogate private keys)
+
+Enables: 
+
+1. Encryption: Only private key holder can decrypt a ameesage with public key
+2. Authentication: A public key can verify ownership of a private key. Also, sign transactions on chain.
+
+---
+
+#### Merkle Trees
+  Leaves are hashes of data
+  Every node is a hash of two child leaves 
+  You can verify auth of tree with node
+  For dataset size n verification requires log(n) -- Scalability
+
+Eth uses properties of Merkle and Patricia Trees  
+  
+https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/
+https://observablehq.com/@consensys-academy/merkle-trees
+
+---
 
