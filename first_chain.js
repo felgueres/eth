@@ -44,3 +44,4 @@ transactionRoot2 = sha256(JSON.stringify("New Transactions"))
 secondBlock = searchForBlock(transactionRoot2, hashFirstBlock, difficulty, zero_nonce)
 
 console.log(secondBlock)
+

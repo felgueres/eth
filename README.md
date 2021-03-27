@@ -213,6 +213,7 @@ There are 2 type of accounts:
 #### TRANSACTIONS
 
 A transaction refers to the signed data package that stores a message to be sent from an externally owned account. 
+A transaction updates the state; balance or storage.
 
 They contain:
 1. Recepient of the message
@@ -374,4 +375,33 @@ https://blog.ethereum.org/2015/11/15/merkling-in-ethereum/
 https://observablehq.com/@consensys-academy/merkle-trees
 
 ---
+
+#### On Gas
+Gas is the metering unit of the EVM
+Each operation on the EVM consumes gas, depending on the operation.
+- Multiplication consumes 5 gas
+- Addition consumes 3 gas
+
+Gas is paid with Eth.
+Gas limit and price is specified per transaction.
+Gas limit is max gas allowed per transaction.
+The marketplace for gas fluctuates from demand.
+
+The gas cost of a transaction can be estimated before it's sent.
+The amount to send with transaction is the start gas or gas limit.
+Gas is reduced on every operational step so you can run out of gas during exeuction.
+If you run out of gas in a transaction, the remaining steps will fail.
+Any remaining gas in the transaction will be returned to the sender.
+
+why gas? reduce spam, halt bad code, every op costs something. alignment of incentives.
+
+---
+
+### Intuition on how ethereum works
+1. Transactions are broadcasted by users
+2. Miners observe this transactions and race to include them in a block
+3. They compute a valid network state by applying the transaction they've included in a block. 
+4. When a miner finds a valid block hash, the transaction data and block header is packaged into a block.
+5. When a miner finds a valid block hash, the block is broadcasted with: Transaction list, uncles list, block header (previous block hash, state root, transactions root, receipt root, block number, gas used, timestamp, nonce)
+
 
