@@ -12,6 +12,7 @@ TODO & Resources
 * Rewatch Eth Mining: Not clear 
 * Video: Hashing Algorithms and Security by Computerphile
 * Vis representation of blockchain: https://andersbrownworth.com/blockchain/
+* Building on blockchain (https://blog.ycombinator.com/building-for-the-blockchain/)
 
 Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
 
@@ -404,4 +405,17 @@ why gas? reduce spam, halt bad code, every op costs something. alignment of ince
 4. When a miner finds a valid block hash, the transaction data and block header is packaged into a block.
 5. When a miner finds a valid block hash, the block is broadcasted with: Transaction list, uncles list, block header (previous block hash, state root, transactions root, receipt root, block number, gas used, timestamp, nonce)
 
+### Other Whys?
+1. In the current internet, the user entrusts 3rd parties and organizations with their data
+2. Auditability due to immutability.
+
+### dApps Development
+- Web 2.0 Apps (client-server apps) happens in servers, information is stored in databases, service layer is made of http API 
+- Web 3 dApps happens in a p2p network, ie. they are hosted in distributed networks, information is stored in blockchain or other decentralized networks, the service layer is built on p2p protocols
+- Sample architechture: web3 enabled browser <--> (http/s) --> html <--> (RPC) <--> ETH node gateway <--> (DEVP2P to Network)
+
+### Capturing Value  
+The paradigm shift is to go from fat application layers to store and monetize users data to thin application layers where the communication protocal captures the value, ie. fat protocols and thin app layer. You monetize the protocol as users build businesses on top of the protocol. Protocol creators issue tokens to represent the value of the protocol.
+
+In this paradigm, open data wins for all, and incentives are aligned to prevent "winner-take-all" markets.
 
