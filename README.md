@@ -13,6 +13,10 @@ TODO & Resources
 * Video: Hashing Algorithms and Security by Computerphile
 * Vis representation of blockchain: https://andersbrownworth.com/blockchain/
 * Building on blockchain (https://blog.ycombinator.com/building-for-the-blockchain/)
+* Create a private testnet / chain (https://souptacular.gitbooks.io/ethereum-tutorials-and-tips-by-hudson/content/private-chain.html)
+* Geth (https://geth.ethereum.org/docs/getting-started)
+* Infura: Public API interface for Ethereum (https://infura.io/)
+
 
 Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
 
