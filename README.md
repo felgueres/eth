@@ -16,6 +16,7 @@ TODO & Resources
 * Create a private testnet / chain (https://souptacular.gitbooks.io/ethereum-tutorials-and-tips-by-hudson/content/private-chain.html)
 * Geth (https://geth.ethereum.org/docs/getting-started)
 * Infura: Public API interface for Ethereum (https://infura.io/)
+* Solidity Docs (logging events: https://docs.soliditylang.org/en/latest/contracts.html#events)
 
 
 Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
@@ -423,3 +424,39 @@ The paradigm shift is to go from fat application layers to store and monetize us
 
 In this paradigm, open data wins for all, and incentives are aligned to prevent "winner-take-all" markets.
 
+---
+
+[Solidity] Contract Structure
+1. pragma -- version of compiler, caret indicates >=
+2. contract ContractName -- Cap names, like python classes
+3. State variable at top (note on storage vs. memory, analogous to hard disk vs. RAM)
+4. State events
+5. Function Modifiers (@Decorator)
+6. Funtions
+7. Construct 
+
+ABI (Application Binary Interface)
+- Standard way to interact with contracts: from outside the blockchain and from contract to contract interaction
+- At compilation you get bytecode and abi which is a json. ABI is the interface between evm bytecode and json rpc, it's like a low level api. This is used to encode and decode data out of transactions.
+- The bytecode doesn't make sense to your app. The ABI is the translation for the bytecode.
+- It's the spec on how the bytecode and web3 are supposed to communicate.
+
+Event use cases (logger)
+- Events can provide smart contract return values for the User Interface
+- Events can act as async triggers with data
+- Events can act as a cheaper for of storage: Logs (or events, they are the same) cost 8 gas per byte whereas storage costs 20K per 32bytes, or 625 gas per byte, that's 80X! They cannot be accessed from any contract though so their storage application is limited.
+ 
+Get values when transaction is mined
+1. You can send a transaction via web3.sj
+2. Tx hash is returned, not that it doesn't return a return value. Tx don't return a contract value because tx are not immediately mined, they are async.
+3. You can use an event in the contract function and an event watcher in the UI to observe a variabel value when the transaction is mined. eg. use an event watcher as a trigger for application logic beyond reading return values like taking an action, displaying a message or updating the UI.
+
+Other notes on events:
+- They're inheritable so you can call a parent event from a child.
+- Logs are not accesible from within contracts, not even by the contract thay created the log.
+- PRovide notifications and confirmations of tx happening in the contract.
+- Logs are not emitted until a tx has been successfuly mined.
+
+
+
+Side Note: You can write EVM bytecode in solidity
