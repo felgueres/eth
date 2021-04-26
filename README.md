@@ -3,10 +3,8 @@ TODO & Resources
 * Investigate the relative merits of proof of work vs. proof of stake
 * How is hash computed? What is nonce?
 * First-to-file paradigm? First registerer succeeds, seconds fails.
-* Check out merkel trees (P1)
 * Elliptic curve signature as input for public keys
 * Have a good understanding of virtual machines
-* Read sci-fi: Mirrorshades
 * How many transactions a second rn for Eth?
 * Real-time monitoring of Eth Blockchain and block creation: http://ethviewer.live/
 * Rewatch Eth Mining: Not clear 
@@ -18,9 +16,10 @@ TODO & Resources
 * Infura: Public API interface for Ethereum (https://infura.io/)
 * Solidity Docs (logging events: https://docs.soliditylang.org/en/latest/contracts.html#events)
 * Difference between call, callcode and delegatecall (https://ethereum.stackexchange.com/questions/3667/difference-between-call-callcode-and-delegatecall)
+* Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
 
-
-Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
+Inspiration
+* Mirroshades
 
 ```
 
@@ -458,6 +457,30 @@ Other notes on events:
 - PRovide notifications and confirmations of tx happening in the contract.
 - Logs are not emitted until a tx has been successfuly mined.
 
-
-
 Side Note: You can write EVM bytecode in solidity
+
+Libraries are contracts that:
+- Don't have storage
+- Cannot hold ether 
+- Cannot be inherited by other contracts
+- Can be seen as implicit base contracts of the contracts that use them
+- Their existence is justified by code reuse. Enabling devs with audited code that has been battle-tested in the wild.
+- Use the library keyword instead of contract to specify them.
+- Trade-off note: Calling a library function is more expensive than calling one locally within a contract. Test is needed to figure out the economics.
+---
+
+Software Developmnet Paradigm
+- Storage is expensive.
+- When using blockchain in your dApp, any transaction process will be done async (promise in js).
+- Blokchains are isolated environments. This means data is difficult to get verified data into the blockchain as you are used to in traditional environments by using APIs. Enter *Oracles*, which allow to fetch data from an outside env.
+- Updating contracts is difficult because deployed contracts are immutable. However you can design for upgradability using *libraries*.
+- Contracts can call library funcs without having to implement and deploy functions for itself, allowing library funcs to modify the state of the calling contract. This is done using delegatecall opcode of the EVM. 
+
+
+--- 
+
+Zero-Knowledge Proofs: There's a verifier and a prover. The verifier submits encrypted information such that it does not reveal anything about the to be verified information. The prover provides verifiable evidence of having such information for the verified with no traceability or disclosed information about the underlying information. 
+
+See: zcash, Aztec Protocol, Key People: Ariel Gabizon
+
+--- 
