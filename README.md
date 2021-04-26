@@ -17,6 +17,7 @@ TODO & Resources
 * Geth (https://geth.ethereum.org/docs/getting-started)
 * Infura: Public API interface for Ethereum (https://infura.io/)
 * Solidity Docs (logging events: https://docs.soliditylang.org/en/latest/contracts.html#events)
+* Difference between call, callcode and delegatecall (https://ethereum.stackexchange.com/questions/3667/difference-between-call-callcode-and-delegatecall)
 
 
 Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
