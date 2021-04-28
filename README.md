@@ -1,7 +1,6 @@
-```
+``
 TODO & Resources
 * Investigate the relative merits of proof of work vs. proof of stake
-* How is hash computed? What is nonce?
 * First-to-file paradigm? First registerer succeeds, seconds fails.
 * Elliptic curve signature as input for public keys
 * Have a good understanding of virtual machines
@@ -426,7 +425,7 @@ In this paradigm, open data wins for all, and incentives are aligned to prevent 
 
 ---
 
-[Solidity] Contract Structure
+Solidity
 1. pragma -- version of compiler, caret indicates >=
 2. contract ContractName -- Cap names, like python classes
 3. State variable at top (note on storage vs. memory, analogous to hard disk vs. RAM)
@@ -467,6 +466,12 @@ Libraries are contracts that:
 - Their existence is justified by code reuse. Enabling devs with audited code that has been battle-tested in the wild.
 - Use the library keyword instead of contract to specify them.
 - Trade-off note: Calling a library function is more expensive than calling one locally within a contract. Test is needed to figure out the economics.
+
+memory vs. calldata vs. storage: https://ethereum.stackexchange.com/questions/74442/when-should-i-use-calldata-and-when-should-i-use-memory
+tldr; defines area where a variable is stored. 
+- memory (RAM): temporary, do not persistent on the network after the transaction has been completed.
+- calldata: must be used when declaring an external function's dynamic params. Behaves mostly like memory, it's non-modifiable, non-persistent where args are stored.
+
 ---
 
 Software Developmnet Paradigm
