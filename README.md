@@ -1,4 +1,4 @@
-``
+```
 TODO & Resources
 * Investigate the relative merits of proof of work vs. proof of stake
 * First-to-file paradigm? First registerer succeeds, seconds fails.
