@@ -489,3 +489,12 @@ Zero-Knowledge Proofs: There's a verifier and a prover. The verifier submits enc
 See: zcash, Aztec Protocol, Key People: Ariel Gabizon
 
 --- 
+DEFI
+
+Financing happens either by claiming ownership of equity or issuing loans. 
+For loans you need collateral. 
+In DEFI you use other crypto as collateral, usually 150% of the lending total value (you over-collateralize).
+Alternatively, you could use information collateral, for asset-poor businesses with real cash flows, the real cash flows provide legitimacy of the lendor.
+For non-collateralized loans, solutions are under development, look at: https://goldfinch.finance/#how-it-works
+
+

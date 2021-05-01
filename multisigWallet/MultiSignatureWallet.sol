@@ -20,7 +20,11 @@ contract MultiSignatureWallet {
             emit Deposit(msg.sender, msg.value);
 	}
     }
-
+    modifier validRequirement(uint ownerCount, uint _required){
+        if ( _required > ownerCount || _required == 0 || ownerCount == 0)
+            revert();
+        _; // The function body is inserted inplace of the underscore.
+    }
     /*
      * Public functions
      */
@@ -31,11 +35,6 @@ contract MultiSignatureWallet {
     validRequirement(_owners.length, _required) 
     {}
 
-    modifier validRequirement(uint ownerCount, uint _required){
-        if ( _required > ownerCount || _required == 0 || ownerCount == 0)
-            revert();
-        _; // The function body is inserted inplace of the underscore.
-    }
 
     /// @dev Allows an owner to submit and confirm a transaction.
     /// @param destination Transaction target address.
