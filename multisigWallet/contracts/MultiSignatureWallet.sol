@@ -13,9 +13,6 @@ contract MultiSignatureWallet {
     address[] public owners; // Array of addresses where we will store owners.
     uint public required; // Unsigned integer about the sig count required to validate transaction.
     mapping (address => bool) public isOwner; // A mapper of address to boolean to represent ownership property.
-    uint public transactionCount;
-    mapping (unit => Transaction) public transactions;
-    mapping(uint=> mapping (address=>bool)) public confirmations;
 
     event Deposit(address indexed sender, uint value);
 
@@ -39,40 +36,24 @@ contract MultiSignatureWallet {
     /*
      * Public functions
      */
-    
     /// @dev Contract constructor sets initial owners and required number of confirmations.
     /// @param _owners List of initial owners.
     /// @param _required Number of required confirmations.
-    
     constructor(address[] memory _owners, uint _required) public 
-    validRequirement(_owners.length, _required){
-        for (uint i=0; i<_owners.length ;i++){
-            isOwner[_owners[i]] = true;
-        }
-        owners = _owners;
-        required = _required;
-    }
+    validRequirement(_owners.length, _required) 
+    {}
+
 
     /// @dev Allows an owner to submit and confirm a transaction.
     /// @param destination Transaction target address.
     /// @param value Transaction ether value.
     /// @param data Transaction data payload.
     /// @return Returns transaction ID.
-
-    function submitTransaction(address destination, uint value, bytes memory data)
-        public 
-        returns (uint transactionId)
-    {
-        require(isOwner[msg.sender]);
-        transactionId = addTransaction(destination, value, data);
-        confirmTransaction(transactionId);
-    }
+    function submitTransaction(address destination, uint value, bytes memory data) public returns (uint transactionId) {}
 
     /// @dev Allows an owner to confirm a transaction.
     /// @param transactionId Transaction ID.
-    function confirmTransaction(uint transactionId) public {
-    
-    }
+    function confirmTransaction(uint transactionId) public {}
 
     /// @dev Allows an owner to revoke a confirmation for a transaction.
     /// @param transactionId Transaction ID.
@@ -95,19 +76,5 @@ contract MultiSignatureWallet {
     /// @param value Transaction ether value.
     /// @param data Transaction data payload.
     /// @return Returns transaction ID.
-    function addTransaction(address destination, uint value, bytes memory data) internal returns (uint transactionId) 
-    {
-        // get transaction count 
-        // store transaction in the mapping
-        // increment transaction count
-        // emit an event
-        transactionId = transactionCount;
-        transactions[transactionId] = new Transaction({
-            executed: false,
-            destination: destination,
-            value: value,
-            data: data })
-        transactionCount+=1
-        emit Submission(transactionId);
-    }
+    function addTransaction(address destination, uint value, bytes memory data) internal returns (uint transactionId) {}
 }
