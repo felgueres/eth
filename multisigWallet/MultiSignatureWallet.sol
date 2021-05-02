@@ -18,6 +18,7 @@ contract MultiSignatureWallet {
     mapping(uint=> mapping (address=>bool)) public confirmations;
 
     event Deposit(address indexed sender, uint value);
+    event Confirmation(address indexed sender, uint indexed transactionId);
 
     /// @dev Fallback function allows to deposit ether.
     function()
@@ -71,8 +72,16 @@ contract MultiSignatureWallet {
     /// @dev Allows an owner to confirm a transaction.
     /// @param transactionId Transaction ID.
     function confirmTransaction(uint transactionId) public {
-    
-    }
+        // Only wallet owners should be able to call this function
+        // Verify that a transaction exists at a specified transactionId
+        // We want to verify the msg.sender has not already confirmed the transaction
+        require(isOwner[msg.sender]);
+        require(transactions[transactionId].destination != address(0));
+        require(confirmations[transactionId][msg.sender] == false);
+        confirmations[transactionId][msg.sender] == true;
+        // Since this function modifies confirmations which is part of the state, we should emit an event for best practices
+        event Confirmation(msg.sender, transactionId);
+        executeTransaction(transactionId);
 
     /// @dev Allows an owner to revoke a confirmation for a transaction.
     /// @param transactionId Transaction ID.
@@ -80,7 +89,10 @@ contract MultiSignatureWallet {
 
     /// @dev Allows anyone to execute a confirmed transaction.
     /// @param transactionId Transaction ID.
-    function executeTransaction(uint transactionId) public {}
+    function executeTransaction(uint transactionId) public 
+    {
+         
+    }
 
 		/*
 		 * (Possible) Helper Functions
