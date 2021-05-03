@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
 contract MultiSignatureWallet {
-
+    
     struct Transaction {
       bool executed;
       address destination;
@@ -40,14 +40,9 @@ contract MultiSignatureWallet {
         _; // The function body is inserted inplace of the underscore.
     }
 
-    /*
-     * Public functions
-     */
-    
     /// @dev Contract constructor sets initial owners and required number of confirmations.
     /// @param _owners List of initial owners.
     /// @param _required Number of required confirmations.
-    
     constructor(address[] memory _owners, uint _required) public 
     validRequirement(_owners.length, _required){
         for (uint i=0; i<_owners.length ;i++){

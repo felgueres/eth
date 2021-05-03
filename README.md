@@ -472,6 +472,10 @@ tldr; defines area where a variable is stored.
 - memory (RAM): temporary, do not persistent on the network after the transaction has been completed.
 - calldata: must be used when declaring an external function's dynamic params. Behaves mostly like memory, it's non-modifiable, non-persistent where args are stored.
 
+Encoding Function Signatures
+Used to call contract's functions in a primitive way or calling contract functions from multisig wallets
+eg. let encodedFunctionSignature = web3.eth.abi.encodeFunctionSignature('sendMessage(string,address)')
+
 ---
 
 Software Developmnet Paradigm
