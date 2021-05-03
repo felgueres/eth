@@ -476,6 +476,9 @@ Encoding Function Signatures
 Used to call contract's functions in a primitive way or calling contract functions from multisig wallets
 eg. let encodedFunctionSignature = web3.eth.abi.encodeFunctionSignature('sendMessage(string,address)')
 
+Writing Tests
+https://courses.consensys.net/courses/take/blockchain-developer-program-on-demand/multimedia/22407849-7-8-1-more-on-writing-tests-in-solidity
+
 ---
 
 Software Developmnet Paradigm
