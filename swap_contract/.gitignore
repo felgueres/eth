@@ -1,0 +1,7 @@
+package-lock.json
+node_modules
+cache
+.DS_Store
+*.swp
+*.swo
+artifacts

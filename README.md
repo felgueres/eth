@@ -18,7 +18,7 @@ TODO & Resources
 * Byzantine fault: https://en.wikipedia.org/wiki/Byzantine_fault#Byzantine_Generals'_Problem
 
 Inspiration
-* Mirroshades
+* Mirrorshades
 
 ```
 
@@ -503,5 +503,4 @@ For loans you need collateral.
 In DEFI you use other crypto as collateral, usually 150% of the lending total value (you over-collateralize).
 Alternatively, you could use information collateral, for asset-poor businesses with real cash flows, the real cash flows provide legitimacy of the lendor.
 For non-collateralized loans, solutions are under development, look at: https://goldfinch.finance/#how-it-works
-
 

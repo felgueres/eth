@@ -3,3 +3,4 @@ privBlockChain
 .secret
 */build/
 *.*.swp
+.DS_Store
